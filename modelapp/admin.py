@@ -1,3 +1,6 @@
 from django.contrib import admin
+from modelapp.models import Cabaña
 
-# Register your models here.
+admin.site.register(Cabaña);
+
+#user admin password:123
