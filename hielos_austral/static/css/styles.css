@@ -3,7 +3,35 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  padding-top: 56px;
 }
+
+.jumbotron {
+  background-image: url('../img/hero.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 100px;
+  height: 500px;
+  
+}
+.jumbotron h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra oscura para resaltar el texto */
+}
+
+
+
+
+.navbar {
+  transition: 0.3s ease-in-out; /* Efecto de transición para el navbar al hacer scroll */
+}
+
+.navbar.scrolled {
+  background-color: #f8f9fa; /* Color de fondo al hacer scroll */
+  transition: 0.3s ease-in-out;
+}
+
 
 .container {
   display: flex;
