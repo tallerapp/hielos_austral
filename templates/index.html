@@ -52,14 +52,69 @@
                         <h2>{{ cabaña.descripcion }}</h2>
                         <p>Precio: ${{ cabaña.precio|floatformat:0}} Por día</p>
                         <p>Capacidad: {{ cabaña.capacidad }} personas</p>
+                        <button class="btn-reservar">Reservar</button>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </section>
+   <!--Seccion de cabañas-->
+   <h2 class="text-center mb-4">actividades de la zona</h2>
+   <section class="container my-5" >
+    
+    <div id="container">
+        <div id="miCarrusel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+          
+              <!-- Primer elemento del carrusel -->
+              <div class="carousel-item active">
+                <div class="card">
+                    <img src="https://picsum.photos/800/400" class="card-img-top" alt="Imagen de marcador de posición">
+                  <div class="card-body">
+                    <h5 class="card-title">Actividad 1</h5>
+                    <p class="card-text">Descripción de la actividad 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="card-text">Horarios: Lunes a Viernes, 9:00 AM - 5:00 PM</p>
+                    <p class="card-text">Ubicación: Ciudad, País</p>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Segundo elemento del carrusel -->
+              <div class="carousel-item">
+                <div class="card">
+                    <img src="https://picsum.photos/800/400" class="card-img-top" alt="Imagen de marcador de posición">
+                  <div class="card-body">
+                    <h5 class="card-title">Actividad 2</h5>
+                    <p class="card-text">Descripción de la actividad 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="card-text">Horarios: Sábado y Domingo, 10:00 AM - 3:00 PM</p>
+                    <p class="card-text">Ubicación: Otra Ciudad, Otro País</p>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Puedes agregar más elementos según sea necesario -->
+          
+            </div>
+            <!-- Controles del carrusel -->
+            <a class="carousel-control-prev" href="#miCarrusel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#miCarrusel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
+
+    </div>
+    
+      
+   </section>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

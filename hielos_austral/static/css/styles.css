@@ -14,24 +14,20 @@ body {
   color: white;
   padding: 100px;
   height: 500px;
-  
 }
+
 .jumbotron h1 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra oscura para resaltar el texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
-
-
-
 
 .navbar {
-  transition: 0.3s ease-in-out; /* Efecto de transición para el navbar al hacer scroll */
-}
-
-.navbar.scrolled {
-  background-color: #f8f9fa; /* Color de fondo al hacer scroll */
   transition: 0.3s ease-in-out;
 }
 
+.navbar.scrolled {
+  background-color: #f8f9fa;
+  transition: 0.3s ease-in-out;
+}
 
 .container {
   display: flex;
@@ -66,4 +62,41 @@ body {
 .card-info p {
   margin: 0;
   color: #666;
+}
+
+.btn-reservar {
+  background-color: #006400;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.btn-reservar:hover {
+  background-color: #004d00;
+}
+
+.carousel-item .card {
+  width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.carousel-item .card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-item .card .card-body {
+  padding: 20px;
+}
+
+.carousel-item .card .btn-reservar {
+  padding: 10px 20px;
 }
