@@ -22,7 +22,6 @@ from modelapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.inicio),
-    path('cabañas/', views.cabañas),
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static

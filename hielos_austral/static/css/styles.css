@@ -3,6 +3,30 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  padding-top: 56px;
+}
+
+.jumbotron {
+  background-image: url('../img/hero.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 100px;
+  height: 500px;
+}
+
+.jumbotron h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.navbar {
+  transition: 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: #f8f9fa;
+  transition: 0.3s ease-in-out;
 }
 
 .container {
@@ -38,4 +62,98 @@ body {
 .card-info p {
   margin: 0;
   color: #666;
+}
+
+.btn-reservar {
+  background-color: #006400;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.btn-reservar:hover {
+  background-color: #004d00;
+}
+
+.carousel-item .card {
+  width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.carousel-item .card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-item .card .card-body {
+  padding: 20px;
+}
+
+.carousel-item .card .btn-reservar {
+  padding: 10px 20px;
+}
+/* Estilos para la sección de contacto */
+.container-contacto {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  text-align: center; /* Centrar el contenido */
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.container-contacto h2 {
+  color: #333;
+  margin-bottom: 10px; /* Reduce el espacio debajo del título */
+}
+
+.container-contacto p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px; /* Reduce el espacio debajo del párrafo */
+}
+
+.container-contacto a {
+  display: inline-block;
+  background-color: #25d366; /* Color de WhatsApp */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  margin: 0 auto;
+  width: 50%;
+}
+.container-con{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-contacto a:hover {
+  background-color: #128c7e; /* Cambio de color al pasar el mouse */
+}
+ /* Footer*/
+ footer {
+  padding: 20px 0;
+  color: #666;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #333;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* Estilo adicional para cambiar el color de los íconos al pasar el mouse sobre ellos */
+.social-icon:hover {
+  color: #006400;
 }
