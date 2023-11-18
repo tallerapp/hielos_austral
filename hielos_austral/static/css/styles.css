@@ -100,3 +100,60 @@ body {
 .carousel-item .card .btn-reservar {
   padding: 10px 20px;
 }
+/* Estilos para la sección de contacto */
+.container-contacto {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  text-align: center; /* Centrar el contenido */
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.container-contacto h2 {
+  color: #333;
+  margin-bottom: 10px; /* Reduce el espacio debajo del título */
+}
+
+.container-contacto p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px; /* Reduce el espacio debajo del párrafo */
+}
+
+.container-contacto a {
+  display: inline-block;
+  background-color: #25d366; /* Color de WhatsApp */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  margin: 0 auto;
+  width: 50%;
+}
+.container-con{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-contacto a:hover {
+  background-color: #128c7e; /* Cambio de color al pasar el mouse */
+}
+ /* Footer*/
+ footer {
+  padding: 20px 0;
+  color: #666;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #333;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* Estilo adicional para cambiar el color de los íconos al pasar el mouse sobre ellos */
+.social-icon:hover {
+  color: #006400;
+}
