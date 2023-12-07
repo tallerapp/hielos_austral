@@ -1,61 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <!-- Enlace a Font Awesome 5 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <title>Hielos Austral</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">Hielos Austral</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#cabañas">Cabañas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#actividades">Actividades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contacto">Contáctanos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Iniciar Sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Registrarse</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+{% extends 'layout.html' %}
+{% block content %}
+
+    
 
     <header id="inicio" class="jumbotron jumbotron-fluid text-center">
       <div class="container">
@@ -76,7 +22,7 @@
             <h2>{{ cabaña.descripcion }}</h2>
             <p>Precio: ${{ cabaña.precio|floatformat:0}} Por día</p>
             <p>Capacidad: {{ cabaña.capacidad }} personas</p>
-            <button class="btn-reservar">Reservar</button>
+            <a href="{% url 'web:cabañas' cabaña_id=cabaña.cabaña_id  %}" class="btn-reservar">Reservar</a>
           </div>
         </div>
         {% endfor %}
@@ -192,8 +138,4 @@
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  </body>
-</html>
+ {% endblock %}
