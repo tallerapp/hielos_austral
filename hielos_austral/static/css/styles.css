@@ -65,6 +65,8 @@ body {
 }
 
 .btn-reservar {
+  display: inline-block;
+  text-decoration: none;
   background-color: #006400;
   color: white;
   padding: 10px 20px;
@@ -76,6 +78,8 @@ body {
 
 .btn-reservar:hover {
   background-color: #004d00;
+  color: white;
+  text-decoration: none;
 }
 
 .carousel-item .card {
