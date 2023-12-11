@@ -1,12 +1,6 @@
+from django.conf import settings
 from django.db import models
-
-class Cliente(models.Model):
-    cliente_id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=50)
-    apellidos = models.CharField(max_length=50)
-    correo_electronico = models.EmailField()
-    password = models.CharField(max_length=100)
-
+from django.contrib.auth.models import User
 
 class Cabaña(models.Model):
     cabaña_id = models.AutoField(primary_key=True)
@@ -19,7 +13,7 @@ class Cabaña(models.Model):
 
 class Reserva(models.Model):
     reserva_id = models.AutoField(primary_key=True)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     cabaña = models.ForeignKey(Cabaña, on_delete=models.CASCADE)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()

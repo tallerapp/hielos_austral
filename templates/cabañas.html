@@ -31,7 +31,7 @@
               <a class="nav-link" href="{% url 'web:index' %}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Iniciar Sesión</a>
+              <a class="nav-link" href="">Iniciar Sesión</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Registrarse</a>
@@ -64,7 +64,7 @@
             <p>Precio por día: ${{ cabaña.precio }}</p>
             <p>Capacidad: {{ cabaña.capacidad }} personas</p>
             <p>Descripción: {{ cabaña.descripcion }}</p>
-            <a href="" class="btn-reservar">Hacer reserva</a>
+            <a href="reserva/{{cabaña.cabaña_id}}" class="btn-reservar">Hacer reserva</a>
         </div>
     </div>
 </div>

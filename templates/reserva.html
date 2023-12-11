@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content%}
+<div class="container-form">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <h2>Reserva para la Cabaña {{ cabaña.cabaña_id }}</h2>
+        <img src="{{ cabaña.imagen.url }}" alt="{{ cabaña.descripcion }}" />
+        <div class="dates">
+            {{ form.fecha_inicio.errors }}
+            {{ form.fecha_inicio }}
+            {{ form.fecha_fin.errors }}
+            {{ form.fecha_fin }}
+        </div>
+        {{ form.cabaña.as_hidden }}
+        <button type="submit">Reservar</button>
+    </form>
+</div>
+
+
+{% endblock %}
