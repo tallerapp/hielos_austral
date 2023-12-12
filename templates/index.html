@@ -1,106 +1,171 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-    
+<header id="inicio" class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4">
+      Bienvenido a Hielo Austral, conoce la magia del sur
+    </h1>
+  </div>
+</header>
 
-    <header id="inicio" class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 class="display-4">
-          Bienvenido a Hielo Austral, conoce la magia del sur
-        </h1>
+<!-- Sección de cabañas -->
+<section id="cabañas" class="container my-5">
+  <h2 class="text-center mb-4">Cabañas Disponibles</h2>
+  <div class="container">
+    {% for cabaña in datos %}
+    <div class="card">
+      <img src="{{ cabaña.imagen.url }}" alt="{{ cabaña.descripcion }}" />
+      <div class="card-info">
+        <h2>{{ cabaña.descripcion }}</h2>
+        <p>Precio: ${{ cabaña.precio|floatformat:0}} Por día</p>
+        <p>Capacidad: {{ cabaña.capacidad }} personas</p>
+        <a href="{% url 'web:cabañas' cabaña_id=cabaña.cabaña_id  %}" class="btn-reservar">Reservar</a>
       </div>
-    </header>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-    <!-- Sección de cabañas -->
-    <section id="cabañas" class="container my-5">
-      <h2 class="text-center mb-4">Cabañas Disponibles</h2>
-      <div class="container">
-        {% for cabaña in datos %}
-        <div class="card">
-          <img src="{{ cabaña.imagen.url }}" alt="{{ cabaña.descripcion }}" />
-          <div class="card-info">
-            <h2>{{ cabaña.descripcion }}</h2>
-            <p>Precio: ${{ cabaña.precio|floatformat:0}} Por día</p>
-            <p>Capacidad: {{ cabaña.capacidad }} personas</p>
-            <a href="{% url 'web:cabañas' cabaña_id=cabaña.cabaña_id  %}" class="btn-reservar">Reservar</a>
+<!-- Sección de actividades -->
+<h2 class="text-center mb-4">Descubre el Sur de Chile</h2>
+<section id="actividades" class="container my-5">
+  <div id="container">
+    <div id="miCarrusel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Actividad 1 -->
+        <div class="carousel-item active">
+          <div class="card">
+            <img
+              src="media/actividad1.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Exploración de Torres del Paine</h5>
+              <p class="card-text">
+                Descubre la majestuosidad del Parque Nacional Torres del Paine con sus icónicas montañas y paisajes.
+              </p>
+              <p class="card-text">
+                Horarios: Disponible todo el año.
+              </p>
+              <p class="card-text">Ubicación: Región de Magallanes, Chile</p>
+            </div>
           </div>
         </div>
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- Sección de actividades -->
-    <h2 class="text-center mb-4">Actividades de la zona</h2>
-    <section  id = "actividades" class="container my-5">
-      <div id="container">
-        <div id="miCarrusel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <!-- Primer elemento del carrusel -->
-            <div class="carousel-item active">
-              <div class="card">
-                <img
-                  src="https://picsum.photos/800/400"
-                  class="card-img-top"
-                  alt="Imagen de marcador de posición"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Actividad 1</h5>
-                  <p class="card-text">
-                    Descripción de la actividad 1. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                  </p>
-                  <p class="card-text">
-                    Horarios: Lunes a Viernes, 9:00 AM - 5:00 PM
-                  </p>
-                  <p class="card-text">Ubicación: Ciudad, País</p>
-                </div>
-              </div>
+        <!-- Actividad 2 -->
+        <div class="carousel-item">
+          <div class="card">
+            <img
+              src="media/actividad2.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 2"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Navegación en los Fiordos</h5>
+              <p class="card-text">
+                Embárcate en una inolvidable travesía por los fiordos chilenos, explorando su belleza natural.
+              </p>
+              <p class="card-text">
+                Horarios: Salidas programadas durante la temporada.
+              </p>
+              <p class="card-text">Ubicación: Fiordos del sur de Chile</p>
             </div>
-            <!-- Segundo elemento del carrusel -->
-            <div class="carousel-item">
-              <div class="card">
-                <img
-                  src="https://picsum.photos/800/400"
-                  class="card-img-top"
-                  alt="Imagen de marcador de posición"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Actividad 2</h5>
-                  <p class="card-text">
-                    Descripción de la actividad 2. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                  </p>
-                  <p class="card-text">
-                    Horarios: Sábado y Domingo, 10:00 AM - 3:00 PM
-                  </p>
-                  <p class="card-text">Ubicación: Otra Ciudad, Otro País</p>
-                </div>
-              </div>
-            </div>
-            <!-- Puedes agregar más elementos según sea necesario -->
           </div>
-          <!-- Controles del carrusel -->
-          <a
-            class="carousel-control-prev"
-            href="#miCarrusel"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#miCarrusel"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-          </a>
+        </div>
+        <!-- Actividad 3 -->
+        <div class="carousel-item">
+          <div class="card">
+            <img
+              src="media/actividad3.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 3"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Senderismo en Chiloé</h5>
+              <p class="card-text">
+                Explora la isla de Chiloé a través de sus rutas de senderismo, descubriendo sus iglesias y paisajes únicos.
+              </p>
+              <p class="card-text">
+                Horarios: Recorridos disponibles durante todo el año.
+              </p>
+              <p class="card-text">Ubicación: Isla de Chiloé, Chile</p>
+            </div>
+          </div>
+        </div>
+        <!-- Actividad 4 -->
+        <div class="carousel-item">
+          <div class="card">
+            <img
+              src="media/actividad4.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 4"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Visita a los Saltos del Petrohué</h5>
+              <p class="card-text">
+                Disfruta de la belleza natural de los Saltos del Petrohué, impresionantes cascadas en medio de la naturaleza.
+              </p>
+              <p class="card-text">
+                Horarios: Acceso permitido durante el día.
+              </p>
+              <p class="card-text">Ubicación: Región de Los Lagos, Chile</p>
+            </div>
+          </div>
+        </div>
+        <!-- Actividad 5 -->
+        <div class="carousel-item">
+          <div class="card">
+            <img
+              src="media/actividad5.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 5"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Recorrido por Valdivia y su Río</h5>
+              <p class="card-text">
+                Descubre la encantadora ciudad de Valdivia y realiza un paseo en barco por el río Calle-Calle.
+              </p>
+              <p class="card-text">
+                Horarios: Disponible los fines de semana.
+              </p>
+              <p class="card-text">Ubicación: Valdivia, Región de Los Ríos, Chile</p>
+            </div>
+          </div>
+        </div>
+        <!-- Actividad 6 -->
+        <div class="carousel-item">
+          <div class="card">
+            <img
+              src="media/actividad6.jpg"
+              class="card-img-top"
+              alt="Imagen de la actividad 6"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Aventura en el Glaciar Grey</h5>
+              <p class="card-text">
+                Vive una experiencia única caminando sobre el Glaciar Grey en el Parque Nacional Torres del Paine.
+              </p>
+              <p class="card-text">
+                Horarios: Excursiones programadas durante la temporada.
+              </p>
+              <p class="card-text">Ubicación: Región de Magallanes, Chile</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+      <!-- Controles del carrusel -->
+      <a class="carousel-control-prev" href="#miCarrusel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#miCarrusel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </div>
+  </div>
+</section>
     <!-- Sección de Contacto -->
     <section id="contacto" class="container-contacto">
       <h2 class="mb-4">Contacto</h2>
