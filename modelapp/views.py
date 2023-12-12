@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from paypal.standard.forms import PayPalPaymentsForm
 from django.urls import reverse
 from django.conf import settings
+from paypal.standard.forms import PayPalPaymentsForm
 
 
 
@@ -66,10 +67,23 @@ def pagar(request, reservas_id):
     reserva = Reserva.objects.get(reserva_id=reservas_id)
     costo_total = calcular_costo_reserva(reserva)
 
-    # Pasar el costo total al contexto de la plantilla
+    paypal_dict = {
+        "business": "sb-kczmg28490318@business.example.com",
+        "amount": costo_total,
+        "item_name": "reserva numero: "+str(reserva.reserva_id),
+        "invoice": reservas_id,
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return": request.build_absolute_uri('/gracias'),
+        "cancel_return": request.build_absolute_uri('/')
+        }
+
+        # Create the instance.
+    formPaypal = PayPalPaymentsForm(initial=paypal_dict)
     context = {
         'reserva': reserva,
-        'costo_total': costo_total
+        'costo_total': costo_total,
+        'formPaypal':formPaypal
+
     }
 
     return render(request, "pagar.html", context)
@@ -82,3 +96,7 @@ def calcular_costo_reserva(reserva):
 
     costo = duracion * reserva.cabaña.precio
     return costo
+
+def gracias(request):
+
+    return render(request,'gracias.html')

@@ -10,10 +10,6 @@
     <p><strong>Costo Total: ${{ costo_total }}</strong></p>
 
     <!-- Formulario de PayPal -->
-    <form action="{{ form.url }}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Pagar con PayPal">
-    </form>
+    {{formPaypal.render}}
 </div>
 {% endblock %}

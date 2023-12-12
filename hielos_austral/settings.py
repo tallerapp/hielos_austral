@@ -79,9 +79,12 @@ WSGI_APPLICATION = 'hielos_austral.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hielosbd',
+        'USER': 'hielosadmin',
+        'PASSWORD': 'Inacap.2023',
+        'HOST': '34.176.90.46',
+        'PORT': '5432'}
 }
 
 
@@ -131,3 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'web:login'
 LOGIN_REDIRECT_URL = '/'
 PAYPAL_RECEIVER_EMAIL = 'sb-kczmg28490318@business.example.com'
+PAYPAL_TEST = True 
