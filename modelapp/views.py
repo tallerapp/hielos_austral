@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from modelapp.models import Cabaña
 from .models import Reserva, User 
-
 from .forms import ReservaForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from paypal.standard.forms import PayPalPaymentsForm
+from django.urls import reverse
+from django.conf import settings
 
 
 
@@ -59,3 +61,24 @@ def reservas_por_cliente(request, cliente_id):
     reservas = Reserva.objects.filter(cliente=cliente)
 
     return render(request, 'verReservas.html', {'reservas': reservas, 'cliente': cliente})
+@login_required
+def pagar(request, reservas_id):
+    reserva = Reserva.objects.get(reserva_id=reservas_id)
+    costo_total = calcular_costo_reserva(reserva)
+
+    # Pasar el costo total al contexto de la plantilla
+    context = {
+        'reserva': reserva,
+        'costo_total': costo_total
+    }
+
+    return render(request, "pagar.html", context)
+
+def calcular_costo_reserva(reserva):
+    duracion = (reserva.fecha_fin - reserva.fecha_inicio).days
+
+    if duracion == 0:
+        duracion = 1
+
+    costo = duracion * reserva.cabaña.precio
+    return costo

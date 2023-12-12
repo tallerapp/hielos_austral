@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container-pagar">
+    <h2>Pagar Reserva</h2>
+    <p>Detalles de la Reserva:</p>
+    <p>Cabaña: {{ reserva.cabaña.descripcion }}</p>
+    <p>Fecha Inicio: {{ reserva.fecha_inicio }}</p>
+    <p>Fecha Fin: {{ reserva.fecha_fin }}</p>
+    <p><strong>Costo Total: ${{ costo_total }}</strong></p>
+
+    <!-- Formulario de PayPal -->
+    <form action="{{ form.url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Pagar con PayPal">
+    </form>
+</div>
+{% endblock %}

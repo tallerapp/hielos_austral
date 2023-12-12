@@ -7,6 +7,7 @@
             <th>Cabaña</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>
+            <th>Acción</th> <!-- Nueva columna para el botón -->
         </tr>
     </thead>
     <tbody>
@@ -15,12 +16,16 @@
             <td>{{ reserva.cabaña.descripcion }}</td>
             <td>{{ reserva.fecha_inicio }}</td>
             <td>{{ reserva.fecha_fin }}</td>
+            <td>
+                <a href="{% url 'web:pagar' reserva.reserva_id%}" class="btn btn-primary">Pagar</a>
+            </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="3">No hay reservas para este cliente.</td>
+            <td colspan="4">No hay reservas para este cliente.</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}
